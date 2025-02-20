@@ -1,0 +1,7 @@
+com\getarrays\employeemanager\model\Employee.class
+com\getarrays\employeemanager\EmployeemanagerApplication.class
+com\getarrays\employeemanager\repo\EmployeeRepo.class
+com\getarrays\employeemanager\exception\UserNotFoundException.class
+com\getarrays\employeemanager\EmployeeResource.class
+com\getarrays\employeemanager\config\CorsConfig.class
+com\getarrays\employeemanager\service\EmployeeService.class
