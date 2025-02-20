@@ -1,5 +1,5 @@
-# Schritt 1: Verwende ein Basis-Image mit OpenJDK 23
-FROM openjdk:23-slim AS build
+# Schritt 1: Verwende ein Basis-Image mit OpenJDK 17
+FROM openjdk:17-slim AS build
 
 # Schritt 2: Installiere Maven im Container
 RUN apt-get update && \
@@ -16,8 +16,8 @@ COPY src ./src
 # Schritt 5: Baue das Projekt mit Maven
 RUN mvn clean package -DskipTests
 
-# Schritt 6: Verwende das OpenJDK 23-Image für den finalen Container
-FROM openjdk:23-jre-slim
+# Schritt 6: Verwende das OpenJDK 17-Image für den finalen Container
+FROM openjdk:17-jre-slim
 
 # Schritt 7: Kopiere das JAR-File aus dem Build-Container
 COPY --from=build /app/target/*.jar /app/app.jar
