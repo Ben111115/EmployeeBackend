@@ -13,9 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Erlaubt alle Endpunkte
-                        .allowedOrigins("https://employeefrontend-8ysm.onrender.com") // Dein Frontend
+                        .allowedOrigins("https://employeefrontend-8ysm.onrender.com") // Dein Angular-Frontend
                         .allowedMethods("GET", "POST", "PUT", "DELETE") // Erlaubte HTTP-Methoden
-                        .allowedHeaders("*");
+                        .allowedHeaders("*") // Erlaubt alle Header
+                        .allowCredentials(true); // Falls du Cookies oder Authentifizierung brauchst
             }
         };
     }
