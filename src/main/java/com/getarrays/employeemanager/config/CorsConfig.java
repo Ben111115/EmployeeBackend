@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Konfiguriere CORS für alle Endpoints
         registry.addMapping("/**")  // Für alle Endpoints
-                .allowedOrigins("http://localhost:4200")  // Erlaubt CORS von der Angular-App
+                .allowedOrigins("https://employeefrontend-8ysm.onrender.com")  // Erlaubt CORS von der Angular-App
                 .allowedMethods("GET", "POST", "PUT", "DELETE")  // Erlaubt nur diese HTTP-Methoden
                 .allowedHeaders("*")  // Erlaubt alle Header
                 .allowCredentials(true);  // Erlaubt Cookies (falls benötigt)
