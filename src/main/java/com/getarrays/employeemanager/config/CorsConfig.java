@@ -8,11 +8,11 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         // Erlaube CORS für alle Endpunkte
-        registry.addMapping("/**")  // Alle Endpoints
-                .allowedOrigins("https://employeefrontend-8ysm.onrender.com", "http://localhost:4200") // Frontend URLs
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // Erlaubte Methoden
-                .allowedHeaders("*")  // Erlaubt alle Header
-                .allowCredentials(true);  // Falls Cookies erforderlich sind
+        registry.addMapping("/**")
+                .allowedOrigins("*") // Erlaube alle Ursprünge
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Erlaube diese Methoden
+                .allowedHeaders("*") // Erlaube alle Header
+                .allowCredentials(true); // Wenn du Cookies oder Authentifizierung verwendest
     }
 }
 
