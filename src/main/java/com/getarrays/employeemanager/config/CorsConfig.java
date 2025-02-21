@@ -5,15 +5,14 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // Konfiguriere CORS für alle Endpoints
-        registry.addMapping("/**")  // Für alle Endpoints
-                .allowedOrigins("https://employeefrontend-8ysm.onrender.com")  // Erlaubt CORS von der Angular-App
-                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Erlaubt nur diese HTTP-Methoden
-                .allowedHeaders("*")  // Erlaubt alle Header
-                .allowCredentials(true);  // Erlaubt Cookies (falls benötigt)
+        System.out.println("CORS-Konfiguration wird angewendet...");
+        registry.addMapping("/**")
+                .allowedOrigins("https://employeefrontend-8ysm.onrender.com/", "http://localhost:4200")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
 
