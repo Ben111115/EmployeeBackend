@@ -16,8 +16,8 @@ public class CorsConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(Customizer.withDefaults()) // Aktiviert CORS mit den Standard-Einstellungen aus dem CorsConfigurationSource
-                .csrf(csrf -> csrf.disable());   // CSRF-Schutz deaktivieren, falls nicht benötigt
+                .cors(Customizer.withDefaults())  // Aktiviert CORS mit den Standard-Einstellungen aus dem CorsConfigurationSource
+                .csrf(csrf -> csrf.disable());    // CSRF-Schutz deaktivieren, falls nicht benötigt
 
         // Weitere Konfigurationen (z.B. Authorisierungsregeln) können hier ergänzt werden
 
@@ -27,7 +27,10 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://employeefrontend-8ysm.onrender.com", "http://localhost:4200"));
+        configuration.setAllowedOrigins(List.of(
+                "https://employeefrontend-8ysm.onrender.com",  // Produktions-Frontend
+                "http://localhost:4200"                       // Lokales Frontend
+        ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -37,3 +40,4 @@ public class CorsConfig {
         return source;
     }
 }
+
